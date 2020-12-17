@@ -64,7 +64,7 @@
                         <input pInputText type="text" [(ngModel)]="product.salesQ1" >
                     </ng-template>
                     <ng-template pTemplate="output">
-                        {{product.salesQ1}}
+                        {{product.salesQ1 | currency: '€'}}
                     </ng-template>
                 </p-cellEditor>
             </td>
@@ -74,7 +74,7 @@
                         <input pInputText type="text" [(ngModel)]="product.salesQ2" >
                     </ng-template>
                     <ng-template pTemplate="output">
-                        {{product.salesQ2}}
+                        {{product.salesQ2 | currency: '€'}}
                     </ng-template>
                 </p-cellEditor>
             </td>
@@ -84,7 +84,7 @@
                         <input pInputText type="text" [(ngModel)]="product.salesQ3" >
                     </ng-template>
                     <ng-template pTemplate="output">
-                        {{product.salesQ3}}
+                        {{product.salesQ3 | currency: '€'}}
                     </ng-template>
                 </p-cellEditor>
             </td>
@@ -94,7 +94,7 @@
                         <input pInputText type="text" [(ngModel)]="product.salesQ4" >
                     </ng-template>
                     <ng-template pTemplate="output">
-                        {{product.salesQ4}}
+                        {{product.salesQ4 | currency: '€'}}
                     </ng-template>
                 </p-cellEditor>
             </td>
@@ -102,10 +102,10 @@
             <td pEditableColumn>
                 <p-cellEditor>
                     <ng-template pTemplate="input">
-                        <input pInputText type="text" [(ngModel)]="product.price">
+                        <input pInputText type="text" [(ngModel)]="product.totalSales">
                     </ng-template>
                     <ng-template pTemplate="output">
-                        {{product.price | currency: 'USD'}}
+                        {{product.totalSales | currency: '€'}}
                     </ng-template>
                 </p-cellEditor>
             </td>
