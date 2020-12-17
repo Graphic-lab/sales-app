@@ -2,7 +2,7 @@
 <h2>Sales overview</h2>
 <div class="card">
   <p-table #dt [value]="products"
-  [globalFilterFields]="['id','name','description','price','quantity']"
+  [globalFilterFields]="['productID','productName','salesQ1','salesQ2','salesQ3','salesQ4','totalSales']"
   >
 
     <ng-template pTemplate="caption">
