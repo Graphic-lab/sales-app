@@ -8,16 +8,16 @@ export class UserService {
 
     constructor(private http: HttpClient) { }
 
-    getAll() {
+    getAll(): any {
         return this.http.get<User[]>(`/users`);
     }
 
-    register(user: string) {
+    register(user: string): any {
         localStorage.setItem('currentUser', JSON.stringify(user));
         return this.http.post(`/users/register`, user);
     }
 
-    delete(id: number) {
+    delete(id: number): any {
         return this.http.delete(`/users/${id}`);
     }
 }

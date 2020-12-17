@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
-// import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-new-product',
@@ -9,27 +8,26 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 export class NewProductComponent implements OnInit {
 
   productForm: FormGroup;
-  loading = false;
-  submitted = false;
+  loading: boolean = false;
+  submitted: boolean = false;
   returnUrl: string;
 
   constructor(
     private formBuilder: FormBuilder,
-    // private router: Router,
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): any {
     this.productForm = this.formBuilder.group({
       name: ['', Validators.required],
       id: ['', Validators.required],
       manager: ['', Validators.required],
       date: ['', Validators.required]
     });
-  };
-  get f() { return this.productForm.controls; }
+  }
+  get f(): any { return this.productForm.controls; }
 
 
-  onSubmit() {
+  onSubmit(): any {
     this.submitted = true;
 
     if (this.productForm.invalid) {
@@ -37,7 +35,6 @@ export class NewProductComponent implements OnInit {
     }
 
     console.log(this.productForm.value);
-    // this.router.navigate(['/welcome']);
 
   }
 }

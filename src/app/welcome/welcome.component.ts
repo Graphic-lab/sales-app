@@ -1,23 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from "../auth/auth.service";
-import { User } from "../auth/auth.model";
+import { AuthenticationService } from '../auth/auth.service';
+import { User } from '../auth/auth.model';
 @Component({
   selector: 'app-welcome',
-  templateUrl: './welcome.component.html'
+  templateUrl: './welcome.component.html',
 })
 export class WelcomeComponent implements OnInit {
-
   currentUser: User;
 
-  constructor(
-    private authenticationService: AuthenticationService
-  ) {
-  }
-  ngOnInit() {
+  constructor(private authenticationService: AuthenticationService) {}
+  ngOnInit(): any {
     this.authenticationService.currentUser.subscribe(
       (x) => (this.currentUser = x)
     );
-    console.log("currentUser === ", this.currentUser);
-    
+    console.log('currentUser === ', this.currentUser);
   }
 }
