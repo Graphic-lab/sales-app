@@ -16,14 +16,8 @@ export class SalesComponent implements OnInit {
   products: ProductNew[];
   productsHeader: ProductHeader[];
   
-  products1: Product[];
-    products2: Product[];
-    products3: Product[];
     statuses: SelectItem[];
 
-    // selectedProducts: Product[];
-    // representatives: Representative[];
-    // statuses: any[];
   
     loading: boolean = true;
     clonedProducts: { [s: string]: Product; } = {};
@@ -38,12 +32,6 @@ export class SalesComponent implements OnInit {
     ngOnInit() {
       this.productService.getPotatoesHeader().then(data => this.productsHeader = data);
       this.productService.getPotatoes().then(data => this.products = data);
-      this.productService.getProductsSmall().then(data => this.products1 = data);
-      this.productService.getProductsSmall().then(data => this.products2 = data);
-      this.productService.getProductsSmall().then(data => this.products3 = data);
-
-      console.log("data ==== ", this.productService.getPotatoes().then(data => this.products = data));
-      console.log("headers === ", this.productService.getPotatoesHeader().then(data => this.productsHeader = data));
     }
 
     customSort(event: SortEvent) {
@@ -81,9 +69,9 @@ export class SalesComponent implements OnInit {
       }
   }
 
-  onRowEditCancel(product: Product, index: number) {
-      this.products2[index] = this.clonedProducts[product.id];
-      delete this.products2[product.id];
-  }
+//   onRowEditCancel(product: Product, index: number) {
+//       this.products2[index] = this.clonedProducts[product.id];
+//       delete this.products2[product.id];
+//   }
 }
 

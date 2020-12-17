@@ -1,6 +1,5 @@
 
 <h2>Sales overview</h2>
-{{productsHeader}}
 <div class="card">
   <!-- <h5>Sales overview</h5> -->
   <p-table #dt [value]="products"
@@ -18,11 +17,13 @@
   </ng-template>
       <ng-template pTemplate="header">
           <tr>
-              <th pSortableColumn="code">code <p-sortIcon field="code"></p-sortIcon></th>
+              <th pSortableColumn="code">id <p-sortIcon field="id"></p-sortIcon></th>
               <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
-              <th pSortableColumn="category">Category <p-sortIcon field="category"></p-sortIcon></th>
-              <th pSortableColumn="quantity">Quantity <p-sortIcon field="quantity"></p-sortIcon></th>
-              <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
+              <th pSortableColumn="category">salesQ1 <p-sortIcon field="salesQ1"></p-sortIcon></th>
+              <th pSortableColumn="quantity">salesQ2 <p-sortIcon field="salesQ2"></p-sortIcon></th>
+              <th pSortableColumn="quantity">salesQ3 <p-sortIcon field="salesQ3"></p-sortIcon></th>
+              <th pSortableColumn="quantity">salesQ4 <p-sortIcon field="salesQ4"></p-sortIcon></th>
+              <th pSortableColumn="price">Total <p-sortIcon field="Total"></p-sortIcon></th>
           </tr>
       </ng-template>
       <ng-template pTemplate="body" let-product>
@@ -35,48 +36,70 @@
               <td>{{product.salesQ4}}</td>
           </tr>
       </ng-template>
-      <!-- <ng-template pTemplate="body" let-product>
+
+      <ng-template pTemplate="body" let-product>
         <tr>
             <td pEditableColumn>
                 <p-cellEditor>
                     <ng-template pTemplate="input">
-                        <input pInputText type="text" [(ngModel)]="product.code">
+                        <input pInputText type="text" [(ngModel)]="product.productID">
                     </ng-template>
                     <ng-template pTemplate="output">
-                        {{product.code}}
+                        {{product.productID}}
                     </ng-template>
                 </p-cellEditor>
             </td>
             <td pEditableColumn>
                 <p-cellEditor>
                     <ng-template pTemplate="input">
-                        <input pInputText type="text" [(ngModel)]="product.name" required>
+                        <input pInputText type="text" [(ngModel)]="product.productName" required>
                     </ng-template>
                     <ng-template pTemplate="output">
-                        {{product.name}}
+                        {{product.productName}}
                     </ng-template>
                 </p-cellEditor>
             </td>
             <td pEditableColumn>
                 <p-cellEditor>
                     <ng-template pTemplate="input">
-                        <p-dropdown [options]="statuses" [(ngModel)]="product.inventoryStatus" [style]="{'width':'100%'}"></p-dropdown>
+                        <input pInputText type="text" [(ngModel)]="product.salesQ1" >
                     </ng-template>
                     <ng-template pTemplate="output">
-                        {{product.inventoryStatus}}
+                        {{product.salesQ1}}
                     </ng-template>
                 </p-cellEditor>
             </td>
             <td pEditableColumn>
-              <p-cellEditor>
-                  <ng-template pTemplate="input">
-                      <input pInputText type="text" [(ngModel)]="product.quantity">
-                  </ng-template>
-                  <ng-template pTemplate="output">
-                      {{product.quantity}}
-                  </ng-template>
-              </p-cellEditor>
-          </td>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="product.salesQ2" >
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{product.salesQ2}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td pEditableColumn>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="product.salesQ3" >
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{product.salesQ3}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td pEditableColumn>
+                <p-cellEditor>
+                    <ng-template pTemplate="input">
+                        <input pInputText type="text" [(ngModel)]="product.salesQ4" >
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{product.salesQ4}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+
             <td pEditableColumn>
                 <p-cellEditor>
                     <ng-template pTemplate="input">
@@ -88,6 +111,8 @@
                 </p-cellEditor>
             </td>
         </tr>
-    </ng-template> -->
+    </ng-template>
+
+
   </p-table>
 </div>
