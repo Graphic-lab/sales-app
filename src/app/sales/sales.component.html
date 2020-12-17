@@ -16,14 +16,17 @@
   </ng-template>
       <ng-template pTemplate="header">
           <tr>
-              <th pSortableColumn="productID">id <p-sortIcon field="productID"></p-sortIcon></th>
-              <th pSortableColumn="productName">Name <p-sortIcon field="productName"></p-sortIcon></th>
-              <th pSortableColumn="salesQ1">salesQ1 <p-sortIcon field="salesQ1"></p-sortIcon></th>
-              <th pSortableColumn="salesQ2">salesQ2 <p-sortIcon field="salesQ2"></p-sortIcon></th>
-              <th pSortableColumn="salesQ3">salesQ3 <p-sortIcon field="salesQ3"></p-sortIcon></th>
-              <th pSortableColumn="salesQ4">salesQ4 <p-sortIcon field="salesQ4"></p-sortIcon></th>
-              <th pSortableColumn="totalSales">Total <p-sortIcon field="totalSales"></p-sortIcon></th>
+              <th rowspan="2" pSortableColumn="productID">id <p-sortIcon field="productID"></p-sortIcon></th>
+              <th rowspan="2" pSortableColumn="productName">Name <p-sortIcon field="productName"></p-sortIcon></th>
+              <th colspan="4" class="text-center">sales</th>
+              <th rowspan="2" pSortableColumn="totalSales">Total <p-sortIcon field="totalSales"></p-sortIcon></th>
           </tr>
+          <tr>
+            <th pSortableColumn="salesQ1">salesQ1 <p-sortIcon field="salesQ1"></p-sortIcon></th>
+            <th pSortableColumn="salesQ2">salesQ2 <p-sortIcon field="salesQ2"></p-sortIcon></th>
+            <th pSortableColumn="salesQ3">salesQ3 <p-sortIcon field="salesQ3"></p-sortIcon></th>
+            <th pSortableColumn="salesQ4">salesQ4 <p-sortIcon field="salesQ4"></p-sortIcon></th>
+        </tr>
       </ng-template>
       <ng-template pTemplate="body" let-product>
         <tr>
@@ -95,6 +98,7 @@
                     </ng-template>
                     <ng-template pTemplate="output">
                         {{product.totalSales | currency: '€'}}
+                        <!-- {{product.salesQ1 + product.salesQ2 + product.salesQ3 + product.salesQ4  | currency: '€'}} -->
                     </ng-template>
                 </p-cellEditor>
             </td>

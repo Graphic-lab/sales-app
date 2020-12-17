@@ -6,7 +6,6 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
   templateUrl: './new-product.component.html',
 })
 export class NewProductComponent implements OnInit {
-
   productForm: FormGroup;
   loading: boolean = false;
   submitted: boolean = false;
@@ -36,6 +35,9 @@ export class NewProductComponent implements OnInit {
 
     console.log(this.productForm.value);
 
+  }
+  onClear(): any {
+    this.productForm.reset();
   }
 }
 

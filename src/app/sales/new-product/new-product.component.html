@@ -43,9 +43,10 @@
       </div>
 
       <div class="form-group">
-        <button class="btn btn-primary">
-          add product
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+          submit
         </button>
+        <button class="btn btn-primary ml-5" type="button" (click)="onClear()">Clear</button>
       </div>
     </form>
   </div>
