@@ -1,14 +1,17 @@
-
-<div class="row">
-  <div class="col-xs-12 col-md-12">
+<div class="row mt-5">
+  <div class="col-xs-12 col-md-12 mb-5">
     <h2>welcome the login is successful!</h2>
+    <div class="alert alert-secondary" role="alert">
+      e-mail : {{ currentUser.email }}<br />
+      password : {{ currentUser.password }}<br />
+    </div>
   </div>
-  <div class="col-xs-12 col-md-6">
-    <a routerLink="/sales">Sales</a><br/>
+  <div class="col-xs-12 col-md-6 mb-5">
+    <a routerLink="/sales" class="btn btn-primary" role="button">Sales</a><br />
     View the “Sales” page, this displays a data grid with products.
   </div>
-  <div class="col-xs-12 col-md-6">
-    <a routerLink="/new-product">New Product</a><br/>
+  <div class="col-xs-12 col-md-6 mb-5">
+    <a routerLink="/new-product" class="btn btn-primary" role="button">New Product</a><br />
     Create a new product, which will result in the sales overview page.
   </div>
 </div>
