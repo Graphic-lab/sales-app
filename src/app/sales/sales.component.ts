@@ -32,8 +32,8 @@ export class SalesComponent implements OnInit {
     ngOnInit() {
       this.productService.getPotatoesHeader().then(data => this.productsHeader = data);
       this.productService.getPotatoes().then(data => this.products = data);
-      console.log("data ==== ", this.productService.getPotatoes().then(data => this.products = data));
-      console.log("headers === ", this.productService.getPotatoesHeader().then(data => this.productsHeader = data));
+    //   console.log("data ==== ", this.productService.getPotatoes().then(data => this.products = data));
+    //   console.log("headers === ", this.productService.getPotatoesHeader().then(data => this.productsHeader = data));
     }
 
     customSort(event: SortEvent) {
