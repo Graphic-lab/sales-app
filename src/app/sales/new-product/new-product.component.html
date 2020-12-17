@@ -1,9 +1,9 @@
-<p>new-product works!</p>
 <div class="row">
   <div class="col-xs-12 col-md-6 col-md-offset-3">
     <h2>Add a new product</h2>
-    <!-- <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
+    <!-- <form [formGroup]="form" (ngSubmit)="onSubmit()"> -->
+      <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
         <label for="id">Id</label>
         <input type="text" formControlName="id" class="form-control" />
         <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
@@ -23,7 +23,7 @@
 
       <div class="form-group">
         <label for="manager">Manager</label>
-        <input type="manager" formControlName="manager" class="form-control" />
+        <input type="text" formControlName="manager" class="form-control" />
         <div *ngIf="submitted && f.manager.errors" class="invalid-feedback">
           <div *ngIf="f.manager.errors.required">Manager is required</div>
           <div *ngIf="f.manager.errors.minlength">
@@ -44,14 +44,10 @@
       </div>
 
       <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary">
-          <span
-            *ngIf="loading"
-            class="spinner-border spinner-border-sm mr-1"
-          ></span>
-          Login
+        <button class="btn btn-primary">
+          add product
         </button>
       </div>
-    </form> -->
+    </form>
   </div>
 </div>

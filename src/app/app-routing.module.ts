@@ -5,7 +5,7 @@ import { AuthComponent } from './auth/auth.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SalesComponent } from './sales/sales.component';
 import { NewProductComponent } from './sales/new-product/new-product.component';
-import { AuthGuard } from './auth/auth.guard';
+// import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [

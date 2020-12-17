@@ -40,7 +40,6 @@ import { InputTextModule } from "primeng/inputtext";
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-
     TableModule,
     CalendarModule,
     SliderModule,
