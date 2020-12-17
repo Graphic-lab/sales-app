@@ -22,20 +22,9 @@
               <th pSortableColumn="salesQ2">salesQ2 <p-sortIcon field="salesQ2"></p-sortIcon></th>
               <th pSortableColumn="salesQ3">salesQ3 <p-sortIcon field="salesQ3"></p-sortIcon></th>
               <th pSortableColumn="salesQ4">salesQ4 <p-sortIcon field="salesQ4"></p-sortIcon></th>
-              <th pSortableColumn="total">Total <p-sortIcon field="total"></p-sortIcon></th>
+              <th pSortableColumn="totalSales">Total <p-sortIcon field="totalSales"></p-sortIcon></th>
           </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-product>
-          <tr>
-              <td>{{product.productID}}</td>
-              <td>{{product.productName}}</td>
-              <td>{{product.salesQ1}}</td>
-              <td>{{product.salesQ2}}</td>
-              <td>{{product.salesQ3}}</td>
-              <td>{{product.salesQ4}}</td>
-          </tr>
-      </ng-template>
-
       <ng-template pTemplate="body" let-product>
         <tr>
             <td pEditableColumn>
