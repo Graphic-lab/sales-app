@@ -1,5 +1,19 @@
 
 <h2>Sales overview</h2>
+
+<ul class="list-group">
+    <a
+      class="list-group-item"
+      style="cursor: pointer"
+      *ngFor="let product of newProducts; let i = index"
+      (click)="onEditItem(i)"
+    >
+    {{ product.productID }} ({{ product.productName }})
+    {{ product.manager }} ({{ product.startDate }})
+    </a>
+  </ul>
+
+  
 <div class="card">
   <p-table #dt [value]="products"
   [globalFilterFields]="['productID','productName','salesQ1','salesQ2','salesQ3','salesQ4','totalSales']"

@@ -19,12 +19,11 @@ export class HeaderComponent implements OnInit {
     this.authenticationService.currentUser.subscribe(
       (x) => (this.currentUser = x)
     );
-    console.log('currentUser === ', this.currentUser);
   }
 
   logout(): any {
     this.authenticationService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth']);
     console.log('clicked: logout thanks');
   }
 }

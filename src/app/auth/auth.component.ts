@@ -16,13 +16,14 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    // private route: ActivatedRoute,
+    private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
     private authenticationService: AuthenticationService
   ) {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
+      
     }
   }
 
@@ -31,20 +32,18 @@ export class AuthComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
   get f(): any {
     return this.loginForm.controls;
   }
 
-  onSubmit(): any {
+  onSubmit() {
     this.submitted = true;
 
     if (this.loginForm.invalid) {
-      return;
+        return;
     }
-
-    console.log(this.loginForm.value);
-    this.router.navigate(['/welcome']);
 
     this.loading = true;
     this.userService
@@ -59,6 +58,18 @@ export class AuthComponent implements OnInit {
           // this.alertService.error(error);
           this.loading = false;
         }
-      );
+    );
+
+    this.router.navigate(['/welcome']);
+    this.authenticationService.login(this.f.email.value, this.f.password.value)
+        .pipe(first())
+        .subscribe(
+            data => {
+                this.router.navigate([this.returnUrl]);
+            },
+            error => {
+                // this.alertService.error(error);
+                this.loading = false;
+            });
   }
 }

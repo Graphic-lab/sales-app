@@ -1,20 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { AuthComponent } from './auth/auth.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './header/header.component';
 import { SalesComponent } from './sales/sales.component';
+import { NewProductComponent } from './new-product/new-product.component';
+
+import { AuthenticationService } from './auth/auth.service';
+import { UserService } from './auth/user.service';
+import { ProductService } from './sales/sales.service';
+import { NewProductService } from './new-product/new-product.service';
+
+import { fakeBackendProvider } from './auth/backend';
+import { JwtInterceptor } from './auth/jws.interceptor';
+import { ErrorInterceptor } from './auth/error.interceptor';
 
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
-import { ProductService } from './sales/sales.service';
 import { ToastModule } from 'primeng/toast';
 import { CalendarModule } from 'primeng/calendar';
 import { SliderModule } from 'primeng/slider';
@@ -32,12 +41,14 @@ import { InputTextModule } from 'primeng/inputtext';
     WelcomeComponent,
     HeaderComponent,
     SalesComponent,
+    NewProductComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     TableModule,
@@ -53,6 +64,14 @@ import { InputTextModule } from 'primeng/inputtext';
     ProgressBarModule,
   ],
   bootstrap: [AppComponent],
-  providers: [ProductService],
+  providers: [
+    ProductService,
+    NewProductService,
+    AuthenticationService,
+    UserService,
+    fakeBackendProvider,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+  ],
 })
 export class AppModule {}

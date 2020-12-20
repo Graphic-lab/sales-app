@@ -7,7 +7,7 @@ import { Product } from './sales.model';
 export class ProductService {
   constructor(private http: HttpClient) {}
 
-  getPotatoesHeader(): any {
+  getProductsHeader(): any {
     return this.http
       .get<any>('assets/potato_sales.json')
       .toPromise()
@@ -16,7 +16,7 @@ export class ProductService {
         return column;
       });
   }
-  getPotatoes(): any {
+  getProducts(): any {
     return this.http
       .get<any>('assets/potato_sales.json')
       .toPromise()
