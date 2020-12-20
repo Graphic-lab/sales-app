@@ -1,19 +1,18 @@
 export class NewProduct {
   constructor(
-    // public name?: string, 
+    // public name?: string,
     // public amount?: number,
     public productID?: string,
     public productName?: string,
     public manager?: string,
-    public startDate?: string,
+    public startDate?: string
+  ) // public salesQ1?: number,
+  // public salesQ2?: number,
+  // public salesQ3?: number,
+  // public salesQ4?: number,
+  // public totalSales?: number,
 
-// public salesQ1?: number,
-// public salesQ2?: number,
-// public salesQ3?: number,
-// public salesQ4?: number,
-// public totalSales?: number,
-
-  ) {}
+  {}
 }
 
 // export interface Product {

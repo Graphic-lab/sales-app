@@ -23,7 +23,6 @@ export class AuthComponent implements OnInit {
   ) {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
-      
     }
   }
 
@@ -42,7 +41,7 @@ export class AuthComponent implements OnInit {
     this.submitted = true;
 
     if (this.loginForm.invalid) {
-        return;
+      return;
     }
 
     this.loading = true;
@@ -58,18 +57,20 @@ export class AuthComponent implements OnInit {
           // this.alertService.error(error);
           this.loading = false;
         }
-    );
+      );
 
     this.router.navigate(['/welcome']);
-    this.authenticationService.login(this.f.email.value, this.f.password.value)
-        .pipe(first())
-        .subscribe(
-            data => {
-                this.router.navigate([this.returnUrl]);
-            },
-            error => {
-                // this.alertService.error(error);
-                this.loading = false;
-            });
+    this.authenticationService
+      .login(this.f.email.value, this.f.password.value)
+      .pipe(first())
+      .subscribe(
+        (data) => {
+          this.router.navigate([this.returnUrl]);
+        },
+        (error) => {
+          // this.alertService.error(error);
+          this.loading = false;
+        }
+      );
   }
 }

@@ -22,27 +22,22 @@ export class SalesComponent implements OnInit, OnDestroy {
   newProducts: NewProduct[];
   private subscription: Subscription;
 
-  constructor(
-    private productService: NewProductService
-    ) {}
+  constructor(private productService: NewProductService) {}
 
   ngOnInit(): any {
     // this.productService
     //   .getProductsHeader()
     //   .then((data) => (this.productsHeader = data));
-    this.productService.getProducts()
-      .then((data) => (this.products = data));
+    this.productService.getProducts().then((data) => (this.products = data));
 
     this.newProducts = this.productService.getNewProducts();
-    this.subscription = this.productService.productsChanged
-      .subscribe(
-        (newProducts: NewProduct[]) => {
-          this.newProducts = newProducts;
-        }
-      );
+    this.subscription = this.productService.productsChanged.subscribe(
+      (newProducts: NewProduct[]) => {
+        this.newProducts = newProducts;
+      }
+    );
 
     // console.log("subscription === ", this.subscription );
-    
   }
 
   onEditItem(index: number) {

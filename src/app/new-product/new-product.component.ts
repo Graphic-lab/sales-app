@@ -9,7 +9,7 @@ import { NewProductService } from './new-product.service';
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
 })
-export class NewProductComponent implements OnInit, OnDestroy  {
+export class NewProductComponent implements OnInit, OnDestroy {
   @ViewChild('f', { static: false }) npForm: NgForm;
   subscription: Subscription;
   editMode = false;
@@ -26,7 +26,7 @@ export class NewProductComponent implements OnInit, OnDestroy  {
         this.editedItem = this.npService.getProduct(index);
         this.npForm.setValue({
           productID: this.editedItem.productID,
-          productName: this.editedItem.productName,          
+          productName: this.editedItem.productName,
           manager: this.editedItem.manager,
           startDate: this.editedItem.startDate,
           // name: this.editedItem.name,
@@ -39,13 +39,13 @@ export class NewProductComponent implements OnInit, OnDestroy  {
   onSubmit(form: NgForm) {
     const value = form.value;
     const newProduct = new NewProduct(
-      value.productID, 
-      value.productName,     
+      value.productID,
+      value.productName,
       value.manager,
-      value.startDate,
+      value.startDate
       // value.name,
       // value.amount
-      );
+    );
     if (this.editMode) {
       this.npService.updateProduct(this.editedItemIndex, newProduct);
     } else {
@@ -68,5 +68,4 @@ export class NewProductComponent implements OnInit, OnDestroy  {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject  } from 'rxjs';
+import { Subject } from 'rxjs';
 // import { Observable, pipe  } from 'rxjs';
 // import { map, catchError } from 'rxjs/operators';
 //import { Product } from './sales.model';
@@ -10,8 +10,8 @@ import { NewProduct } from './new-product.model';
 export class NewProductService {
   productsChanged = new Subject<NewProduct[]>();
   startedEditing = new Subject<number>();
-  productsUrl = "assets/potato_sales.json";
-  
+  productsUrl = 'assets/potato_sales.json';
+
   private products: NewProduct[] = [];
 
   constructor(private http: HttpClient) {}
@@ -48,7 +48,7 @@ export class NewProductService {
   //       productName: "test productName",
   //     });
   //     console.log("productInstance == ", productInstance);
-      
+
   //     return productInstance;
   //   })),
   //   // catchError(this.handleError)
@@ -64,21 +64,23 @@ export class NewProductService {
   //     });
   // }
   getProducts(): any {
-    return this.http
-    // .get<any>('assets/potato_sales.json')
-    .get<any>(this.productsUrl)
-    .toPromise()
-      .then((res) => res.data)
-      .then((data) => {
-        data.forEach(
-          (item) =>
-            (item.totalSales =
-              item.salesQ1 + item.salesQ2 + item.salesQ3 + item.salesQ4)
-        );
-        // console.log("data == ", data);
-        
-        return data;
-      });
+    return (
+      this.http
+        // .get<any>('assets/potato_sales.json')
+        .get<any>(this.productsUrl)
+        .toPromise()
+        .then((res) => res.data)
+        .then((data) => {
+          data.forEach(
+            (item) =>
+              (item.totalSales =
+                item.salesQ1 + item.salesQ2 + item.salesQ3 + item.salesQ4)
+          );
+          // console.log("data == ", data);
+
+          return data;
+        })
+    );
   }
 
   getNewProducts() {
@@ -91,11 +93,10 @@ export class NewProductService {
 
   addProduct(product: NewProduct) {
     this.products.push(product);
-    console.log("this.products === ", this.products);
-    
-    this.productsChanged.next(this.products.slice());
-    console.log("this.productsChanged === ", this.productsChanged);
+    console.log('this.products === ', this.products);
 
+    this.productsChanged.next(this.products.slice());
+    console.log('this.productsChanged === ', this.productsChanged);
   }
 
   addProducts(products: NewProduct[]) {

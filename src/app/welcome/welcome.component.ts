@@ -11,10 +11,8 @@ export class WelcomeComponent implements OnInit {
   currentUser: User;
   userChanged: any;
   userChangedSub: Subscription;
-  
-  constructor(
-    private authenticationService: AuthenticationService,
-    ) {}
+
+  constructor(private authenticationService: AuthenticationService) {}
 
   ngOnInit(): any {
     this.authenticationService.currentUser.subscribe(
